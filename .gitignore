@@ -1,0 +1,54 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# React Native build output
+android/.gradle/
+android/app/build/
+android/build/
+android/app/.cxx/
+ios/build/
+ios/Pods/
+ios/.xcworkspace
+.bundle/
+.gradle/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Metro
+*.jsbundle
+.metro-health-check*
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# Environment
+.env
+.env.*
+*.keystore
+*.jks
+
+# IDEs and editors
+.vscode/
+.idea/
+*.code-workspace
+
+# Test output
+coverage/
+__tests__/coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc
+*.tmp
+*.lock
