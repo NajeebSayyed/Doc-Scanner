@@ -1,35 +1,23 @@
-import React, { useState, useEffect } from 'react'
-import { Image } from 'react-native'
-import DocumentScanner from 'react-native-document-scanner-plugin'
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack'
+import { NavigationContainer } from '@react-navigation/native'
+import ScannerScreen from './screens/ScannerScreen'
+import SaveOptionsScreen from './screens/SaveOptionsScreen'
+
+const Stack = createStackNavigator()
 
 const App = () => {
-
-  const [scannedImage, setScannedImage] = useState();
-
-  const scanDocument = async () => {
-    // start the document scanner
-    const { scannedImages } = await DocumentScanner.scanDocument()
-  
-    // get back an array with scanned image file paths
-    if (scannedImages.length > 0) {
-      // set the img src, so we can view the first scanned image
-      setScannedImage(scannedImages[0])
-    }
-  }
-
-  useEffect(() => {
-    // call scanDocument on load
-    scanDocument()
-  }, []);
   return (
-      <Image
-      resizeMode="contain"
-      style={{ width: '100%', height: '100%' }}
-      source={{ uri: scannedImage }}
-    />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Scanner'>
+        <Stack.Screen name='Scanner' component={ScannerScreen} options={{headerShown:false}} />
+        <Stack.Screen name='SaveOptions' component={SaveOptionsScreen} options={{title:'Save Document'}} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
 export default App
 
-// const styles = StyleSheet.create({})
+const styles = StyleSheet.create({})
